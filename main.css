@@ -1,0 +1,43 @@
+/*  CSS for the horizon-azur theme */
+/*  built by @eurydice13           */
+
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+
+/* basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6f6;
+  font-family: "Open Sans", sans serif;
+  font-size:1.2em;
+  /* in reality my fonts will be taken care of by typekit */
+}
+
+/* Basic post block in a list */
+
+.post{
+  display: block;
+  width: 50ch;
+  margin: 3em auto 0px auto;
+  clear:left;
+  border: 1px solid #000000;
+}
+
+/* modifiers */
+
+/* elements */
+
+.post--categories{}
+
+.post--title{
+  font-size: 2em;
+  line-height: 1.5em;
+  margin: 0.5em auto 0.3em 0;
+
+}
+
+/* modifiers of each element */
