@@ -22,10 +22,10 @@ body {
 .post{
   display: block;
   max-width: 55ch;
-  margin: 3em auto 0 auto;
+  margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
   clear:left;
-  border: 1px solid #000000;
+  
   position: relative;
 }
 
@@ -106,8 +106,7 @@ body {
 
   }
   .-tags{
-    margin-right: 0px;
-    margin-left: auto;
+    clear:both;
 
   }
 
