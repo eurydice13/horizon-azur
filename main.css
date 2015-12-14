@@ -26,6 +26,7 @@ body {
   padding: 0 1em 0 1em;
   clear:left;
   border: 1px solid #000000;
+  position: relative;
 }
 
 /* modifiers */
@@ -34,13 +35,19 @@ body {
 
 .post--categories{
   font-size: 0.8em;
-  clear: both;
+  width:153px;
+  position: absolute;
+  left: -150px;
+  z-index: -1;
 }
+
+/* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
 
 .post--categories ul li{
   background-color: #CCCCCC;
-  padding: 0.2em 0.3em 0 0.2em;
+  padding: 1em 0.4em 0.3em 0.4em;
   margin:0 1em 0.2em 0;
+  width: 100%;
   list-style: none;
   display: block;
   float: left;
@@ -50,7 +57,7 @@ body {
   font-size: 2em;
   line-height: 1.5em;
   margin: 0.5em auto 0.3em 0;
-  clear: both;
+  clear: left;
 
 }
 
@@ -89,14 +96,19 @@ body {
   float:left;
   margin:0.2em 1em 0.2em 0;
   vertical-align: bottom;
+  font-size: 0.85em;
+  color:#888;
 }
   .-when{
 
   }
-  .-author{}
+  .-author{
+
+  }
   .-tags{
-    margin-top: 0.85em;
-    font-size: 0.7em;
+    margin-right: 0px;
+    margin-left: auto;
+
   }
 
 
