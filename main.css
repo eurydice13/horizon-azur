@@ -21,8 +21,9 @@ body {
 
 .post{
   display: block;
-  width: 50ch;
-  margin: 3em auto 0px auto;
+  max-width: 50ch;
+  margin: 3em auto 0 auto;
+  padding: 0 1em 0 1em;
   clear:left;
   border: 1px solid #000000;
 }
@@ -31,13 +32,62 @@ body {
 
 /* elements */
 
-.post--categories{}
+.post--categories{
+  font-size: 0.8em;
+  clear: both;
+}
+
+.post--categories ul li{
+  background-color: #CCCCCC;
+  padding: 0.2em 0.3em 0 0.2em;
+  margin:0 1em 0.2em 0;
+  list-style: none;
+  display: block;
+  float: left;
+}
 
 .post--title{
   font-size: 2em;
   line-height: 1.5em;
   margin: 0.5em auto 0.3em 0;
+  clear: both;
 
 }
+
+.post--image{
+  display: block;
+  float: right;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 350px;
+  max-width: 350px;
+  width:45%;
+  margin: 0 0 0.5em 1em;
+
+  background-image: url(kitten_1-1.jpg);
+  background-clip: content-box;
+  background-size: cover;
+}
+
+.post--excerpt{
+  margin: 0 auto 0.5em 0;
+}
+
+.post--metadata{
+  float:left;
+  margin:0.2em 1em 0.2em 0;
+  vertical-align: bottom;
+}
+  .-when{
+
+  }
+  .-author{}
+  .-tags{
+    margin-top: 0.85em;
+    font-size: 0.7em;
+  }
+
+
+
 
 /* modifiers of each element */
