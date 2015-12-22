@@ -1,134 +1,59 @@
-/*  CSS for the horizon-azur theme */
-/*  built by @eurydice13           */
+/*
+Error: Invalid CSS after "#f6f6f6": expected expression (e.g. 1px, bold), was ";"
+        on line 16 of ../horizon-azur/main.sass
 
-@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+11:   padding: 0
+12:   box-sizing: border-box
+13: }
+14: 
+15: body {
+16:   background-color: #f6f6f6;
+17: 
+18:   font-size:1.2em;
+19:   /* in reality my fonts will be taken care of by typekit *\/
+20: }
+21: 
 
-/* basics */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #f6f6f6;
-  font-family: "Open Sans", sans serif;
-  font-size:1.2em;
-  /* in reality my fonts will be taken care of by typekit */
-}
-
-/* Basic post block in a list */
-
-.post{
-  display: block;
-  max-width: 55ch;
-  margin: 5em auto 0 auto;
-  padding: 0 1em 0 1em;
-  clear:left;
-
-  position: relative;
-}
-
-/* modifiers */
-.post-page{
-  display: block;
-  max-width: 55ch;
-  margin: 5em auto 0 auto;
-  padding: 0 1em 0 1em;
-  clear:left;
-
-  position: relative;
-}
-
-
-/* elements */
-
-.post--categories{
-  font-size: 0.8em;
-  width:153px;
-  position: absolute;
-  left: -150px;
-  z-index: -1;
-}
-
-.-post-page{
-  color:#990000;
-}
-
-/* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
-
-.post--categories ul li{
-  background-color: #CCCCCC;
-  padding: 1em 0.4em 0.3em 0.4em;
-  margin:0 1em 0.2em 0;
-  width: 100%;
-  list-style: none;
-  display: block;
-  float: left;
-}
-
-.post--title{
-  font-size: 2em;
-  line-height: 1.5em;
-  margin: 0.5em auto 0.3em 0;
-  clear: left;
-
-}
-.-post-page{
-  color:#009900;
-}
-
-
-.post--image{
-  display: block;
-  float: right;
-  min-width: 200px;
-  min-height: 200px;
-  width:45%;
-  margin: 0 0 0.5em 1em;
-
-  background-image: url(kitten_1-1.jpg);
-  background-clip: content-box;
-  background-size: cover;
-}
-
-  .-mostrecent{
-    width:100%;
-    height: 300px;
-    margin: 0 0 0.5em 0;
-    clear: both;
-    width:100%;
-    margin: 0 0 0.5em 0;
-
-    background-image: url(kitten_1-1.jpg);
-    background-clip: content-box;
-    background-size: cover;
-    background-position: center;
-  }
-
-.post--excerpt{
-  margin: 0 auto 0.5em 0;
-}
-
-.post--metadata{
-  float:left;
-  margin:0.2em 1em 0.2em 0;
-  vertical-align: bottom;
-  font-size: 0.85em;
-  color:#888;
-}
-  .-when{
-
-  }
-  .-author{
-
-  }
-  .-tags{
-    clear:both;
-
-  }
-
-
-
-
-/* modifiers of each element */
+Backtrace:
+../horizon-azur/main.sass:16
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/scss/parser.rb:1179:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/script/lexer.rb:228:in `expected!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/script/parser.rb:702:in `assert_done'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/script/parser.rb:64:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/script/parser.rb:223:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/script.rb:27:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:1151:in `parse_script'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:720:in `parse_property'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:691:in `parse_property_or_rule'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:657:in `parse_line'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:535:in `build_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:554:in `block in append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:553:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:553:in `append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:544:in `block in build_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:537:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:537:in `build_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:554:in `block in append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:553:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:553:in `append_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:406:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:293:in `watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/plugin.rb:108:in `method_missing'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:381:in `watch_or_update'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/exec/base.rb:52:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/lib/sass/exec/base.rb:19:in `parse!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.20/bin/scss:13:in `<top (required)>'
+/usr/local/bin/scss:23:in `load'
+/usr/local/bin/scss:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"#f6f6f6\": expected expression (e.g. 1px, bold), was \";\"\A         on line 16 of ../horizon-azur/main.sass\A \A 11:   padding: 0\A 12:   box-sizing: border-box\A 13: }\A 14: \A 15: body {\A 16:   background-color: #f6f6f6;\A 17: \A 18:   font-size:1.2em;\A 19:   /* in reality my fonts will be taken care of by typekit */\A 20: }\A 21: "; }

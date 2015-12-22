@@ -1,0 +1,122 @@
+// main.sass
+
+/*  SASS for the horizon-azur theme */
+/*  built by @eurydice13           */
+
+//@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+
+/* basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f6f6f6;
+  font-family: "Open Sans", sans serif;
+  font-size:1.2em;
+  /* in reality my fonts will be taken care of by typekit */
+}
+
+/* Basic post block in a list */
+
+.post{
+  display: block;
+  max-width: 55ch;
+  margin: 5em auto 0 auto;
+  padding: 0 1em 0 1em;
+  clear:left;
+
+  position: relative;
+}
+
+/* modifiers */
+
+
+/* elements */
+
+.post--categories{
+  font-size: 0.8em;
+  width:153px;
+  position: absolute;
+  left: -150px;
+  z-index: -1;
+}
+
+&.-post-page{
+  color:#990000;
+}
+
+/* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
+
+.post--categories ul li{
+  background-color: #CCCCCC;
+  padding: 1em 0.4em 0.3em 0.4em;
+  margin:0 1em 0.2em 0;
+  width: 100%;
+  list-style: none;
+  display: block;
+  float: left;
+}
+
+.post--title{
+  font-size: 2em;
+  line-height: 1.5em;
+  margin: 0.5em auto 0.3em 0;
+  clear: left;
+
+}
+&.-post-page{
+  color:#009900;
+}
+
+
+.post--image{
+  display: block;
+  float: right;
+  min-width: 200px;
+  min-height: 200px;
+  width:45%;
+  margin: 0 0 0.5em 1em;
+
+  background-image: url(kitten_1-1.jpg);
+  background-clip: content-box;
+  background-size: cover;
+}
+
+.-mostrecent{
+  width:100%;
+  height: 300px;
+  margin: 0 0 0.5em 0;
+  clear: both;
+  width:100%;
+  margin: 0 0 0.5em 0;
+
+  background-image: url(kitten_1-1.jpg);
+  background-clip: content-box;
+  background-size: cover;
+  background-position: center;
+  }
+
+.post--excerpt{
+  margin: 0 auto 0.5em 0;
+}
+
+.post--metadata{
+  float:left;
+  margin:0.2em 1em 0.2em 0;
+  vertical-align: bottom;
+  font-size: 0.85em;
+  color:#888;
+}
+  .-when{
+
+  }
+  .-author{
+
+  }
+  .-tags{
+    clear:both;
+
+  }
