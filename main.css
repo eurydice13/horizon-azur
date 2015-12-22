@@ -25,11 +25,21 @@ body {
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
   clear:left;
-  
+
   position: relative;
 }
 
 /* modifiers */
+.post-page{
+  display: block;
+  max-width: 55ch;
+  margin: 5em auto 0 auto;
+  padding: 0 1em 0 1em;
+  clear:left;
+
+  position: relative;
+}
+
 
 /* elements */
 
@@ -39,6 +49,10 @@ body {
   position: absolute;
   left: -150px;
   z-index: -1;
+}
+
+.-post-page{
+  color:#990000;
 }
 
 /* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
@@ -60,6 +74,10 @@ body {
   clear: left;
 
 }
+.-post-page{
+  color:#009900;
+}
+
 
 .post--image{
   display: block;
