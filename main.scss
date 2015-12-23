@@ -5,6 +5,8 @@
 
 @import url("http://fonts.googleapis.com/css?family=Open+Sans");
 
+$fontpackage : "Open Sans", sans-serif;
+
 /* basics */
 * {
   margin: 0;
@@ -27,10 +29,13 @@ body {
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
   clear:left;
-
   position: relative;
 }
 
+.post-page{
+  @extend .post;
+  max-width: 70ch;
+}
 /* modifiers */
 
 
@@ -42,23 +47,23 @@ body {
   position: absolute;
   left: -150px;
   z-index: -1;
-}
 
-  .-post-page{
-    color:#990000;
+    & ul li{
+    background-color: #CCCCCC;
+    padding: 1em 0.4em 0.3em 0.4em;
+    margin:0 1em 0.2em 0;
+    width: 100%;
+    list-style: none;
+    display: block;
+    float: left;
+    }
   }
 
-/* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
+.-categories-post-page{
+   color:#990000;
+   border-left: solid 2px #00aabb;
+  }
 
-.post--categories ul li{
-  background-color: #CCCCCC;
-  padding: 1em 0.4em 0.3em 0.4em;
-  margin:0 1em 0.2em 0;
-  width: 100%;
-  list-style: none;
-  display: block;
-  float: left;
-}
 
 .post--title{
   font-size: 2em;
@@ -66,10 +71,11 @@ body {
   margin: 0.5em auto 0.3em 0;
   clear: left;
 
-}
   .-post-page{
     color:#009900;
   }
+
+}
 
 
 .post--image{

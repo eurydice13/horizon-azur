@@ -14,13 +14,16 @@ body {
   /* in reality my fonts will be taken care of by typekit */ }
 
 /* Basic post block in a list */
-.post {
+.post, .post-page {
   display: block;
   max-width: 55ch;
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
   clear: left;
   position: relative; }
+
+.post-page {
+  max-width: 70ch; }
 
 /* modifiers */
 /* elements */
@@ -30,28 +33,26 @@ body {
   position: absolute;
   left: -150px;
   z-index: -1; }
+  .post--categories ul li {
+    background-color: #CCCCCC;
+    padding: 1em 0.4em 0.3em 0.4em;
+    margin: 0 1em 0.2em 0;
+    width: 100%;
+    list-style: none;
+    display: block;
+    float: left; }
 
-.-post-page {
-  color: #990000; }
-
-/* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
-.post--categories ul li {
-  background-color: #CCCCCC;
-  padding: 1em 0.4em 0.3em 0.4em;
-  margin: 0 1em 0.2em 0;
-  width: 100%;
-  list-style: none;
-  display: block;
-  float: left; }
+.-categories-post-page {
+  color: #990000;
+  border-left: solid 2px #00aabb; }
 
 .post--title {
   font-size: 2em;
   line-height: 1.5em;
   margin: 0.5em auto 0.3em 0;
   clear: left; }
-
-.-post-page {
-  color: #009900; }
+  .post--title .-post-page {
+    color: #009900; }
 
 .post--image {
   display: block;
