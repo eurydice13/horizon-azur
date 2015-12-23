@@ -1,9 +1,9 @@
-// main.sass
+// main.scss
 
-/*  SASS for the horizon-azur theme */
+/*  SCSS for the horizon-azur theme */
 /*  built by @eurydice13           */
 
-//@import url("http://fonts.googleapis.com/css?family=Open+Sans");
+@import url("http://fonts.googleapis.com/css?family=Open+Sans");
 
 /* basics */
 * {
@@ -44,9 +44,9 @@ body {
   z-index: -1;
 }
 
-&.-post-page{
-  color:#990000;
-}
+  .-post-page{
+    color:#990000;
+  }
 
 /* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
 
@@ -67,9 +67,9 @@ body {
   clear: left;
 
 }
-&.-post-page{
-  color:#009900;
-}
+  .-post-page{
+    color:#009900;
+  }
 
 
 .post--image{
