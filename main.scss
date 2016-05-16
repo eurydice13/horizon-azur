@@ -7,6 +7,26 @@
 
 $fontpackage : "Open Sans", sans-serif;
 
+$BODY_BKG_color: #00a6b9;
+//$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
+$BODY_BKG_DARK_color: #00616D;
+$BODY_color: #FFFFFF;
+$BODY_size: 1.2em;
+
+$POST_TITLE_size: 2.3rem;
+$POST_width: 64ch;
+
+$LINK_color: #ABF358;
+
+$BUTTON_text_color: $BODY_color;
+$BUTTON_color: $BODY_BKG_DARK_color;
+
+$METADATA_color: $BODY_BKG_DARK_color;
+$METADATA_size: 0.8rem;
+
+$CATEGORY_BKG_color: $BODY_BKG_DARK_color;
+$CATEGORY_size: 0.8rem;
+
 /* basics */
 * {
   margin: 0;
@@ -15,26 +35,31 @@ $fontpackage : "Open Sans", sans-serif;
 }
 
 body {
-  background-color: #f6f6f6;
+  background-color: $BODY_BKG_color;
+  color: $BODY_color;
   font-family: "Open Sans", sans serif;
-  font-size:1.2em;
+  font-size:$BODY_size;
   /* in reality my fonts will be taken care of by typekit */
+}
+
+a, a:active {
+  color: $LINK_color;
 }
 
 /* Basic post block in a list */
 
 .post{
   display: block;
-  max-width: 55ch;
+  max-width: $POST_width;
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
   clear:left;
   position: relative;
 }
 
-.post-page{
+.post-fullpage{
   @extend .post;
-  max-width: 70ch;
+  max-width: $POST_width;
 }
 /* modifiers */
 
@@ -42,14 +67,14 @@ body {
 /* elements */
 
 .post--categories{
-  font-size: 0.8em;
-  width:153px;
+  font-size: $CATEGORY_size;
+  width:25ch;
   position: absolute;
-  left: -150px;
+  left: -25ch;
   z-index: -1;
 
     & ul li{
-    background-color: #CCCCCC;
+    background-color: $CATEGORY_BKG_color;
     padding: 1em 0.4em 0.3em 0.4em;
     margin:0 1em 0.2em 0;
     width: 100%;
@@ -59,24 +84,28 @@ body {
     }
   }
 
-.-categories-post-page{
-   color:#990000;
+.-post--categories--full-page{
    border-left: solid 2px #00aabb;
+   clear: both;
+    & ul li{
+        max-width: 30ch;
+
+    }
+
   }
 
 
 .post--title{
-  font-size: 2em;
-  line-height: 1.5em;
+  font-size: $POST_TITLE_size;
+  line-height: 1.5 * $POST_TITLE_size;
   margin: 0.5em auto 0.3em 0;
   clear: left;
-
-  .-post-page{
-    color:#009900;
-  }
-
 }
 
+.-post--title--fullpage{
+  @extend .post--title;
+  clear:both;
+}
 
 .post--image{
   display: block;
@@ -89,6 +118,19 @@ body {
   background-image: url(kitten_1-1.jpg);
   background-clip: content-box;
   background-size: cover;
+  background-position: center;
+}
+
+.-post--image--fullpage{
+  clear:both;
+  min-width: 320px;
+  min-height: 280px;
+  width:1.2 * $POST_width;
+
+  right: 0.2 * $POST_width;
+  background-image: url(kitten_1-1.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .-mostrecent{
@@ -111,10 +153,10 @@ body {
 
 .post--metadata{
   float:left;
-  margin:0.2em 1em 0.2em 0;
+  margin:0.2em 2em 0.2em 0;
   vertical-align: bottom;
-  font-size: 0.85em;
-  color:#888;
+  font-size: $METADATA_size;
+  color:$METADATA_color;
 }
   .-when{
 
@@ -126,3 +168,7 @@ body {
     clear:both;
 
   }
+
+.-post--metadata--fullpage{
+
+}

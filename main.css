@@ -8,33 +8,37 @@
   box-sizing: border-box; }
 
 body {
-  background-color: #f6f6f6;
+  background-color: #00a6b9;
+  color: #FFFFFF;
   font-family: "Open Sans", sans serif;
   font-size: 1.2em;
   /* in reality my fonts will be taken care of by typekit */ }
 
+a, a:active {
+  color: #ABF358; }
+
 /* Basic post block in a list */
-.post, .post-page {
+.post, .post-fullpage {
   display: block;
-  max-width: 55ch;
+  max-width: 64ch;
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
   clear: left;
   position: relative; }
 
-.post-page {
-  max-width: 70ch; }
+.post-fullpage {
+  max-width: 64ch; }
 
 /* modifiers */
 /* elements */
 .post--categories {
-  font-size: 0.8em;
-  width: 153px;
+  font-size: 0.8rem;
+  width: 25ch;
   position: absolute;
-  left: -150px;
+  left: -25ch;
   z-index: -1; }
   .post--categories ul li {
-    background-color: #CCCCCC;
+    background-color: #00616D;
     padding: 1em 0.4em 0.3em 0.4em;
     margin: 0 1em 0.2em 0;
     width: 100%;
@@ -42,17 +46,20 @@ body {
     display: block;
     float: left; }
 
-.-categories-post-page {
-  color: #990000;
-  border-left: solid 2px #00aabb; }
+.-post--categories--full-page {
+  border-left: solid 2px #00aabb;
+  clear: both; }
+  .-post--categories--full-page ul li {
+    max-width: 30ch; }
 
-.post--title {
-  font-size: 2em;
-  line-height: 1.5em;
+.post--title, .-post--title--fullpage {
+  font-size: 2.3rem;
+  line-height: 3.45rem;
   margin: 0.5em auto 0.3em 0;
   clear: left; }
-  .post--title .-post-page {
-    color: #009900; }
+
+.-post--title--fullpage {
+  clear: both; }
 
 .post--image {
   display: block;
@@ -63,7 +70,18 @@ body {
   margin: 0 0 0.5em 1em;
   background-image: url(kitten_1-1.jpg);
   background-clip: content-box;
-  background-size: cover; }
+  background-size: cover;
+  background-position: center; }
+
+.-post--image--fullpage {
+  clear: both;
+  min-width: 320px;
+  min-height: 280px;
+  width: 76.8ch;
+  right: 12.8ch;
+  background-image: url(kitten_1-1.jpg);
+  background-size: cover;
+  background-position: center; }
 
 .-mostrecent {
   width: 100%;
@@ -82,10 +100,10 @@ body {
 
 .post--metadata {
   float: left;
-  margin: 0.2em 1em 0.2em 0;
+  margin: 0.2em 2em 0.2em 0;
   vertical-align: bottom;
-  font-size: 0.85em;
-  color: #888; }
+  font-size: 0.8rem;
+  color: #00616D; }
 
 .-tags {
   clear: both; }
