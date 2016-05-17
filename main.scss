@@ -1,21 +1,46 @@
 // main.scss
+/*
+Theme Name: horizon-azur
+Theme URI: http://wordpress.org/themes/horizon-azur
+Author: Sophie Exintaris (@eurydice13)
+Author URI: http://eurydice13.com
+Description: A simple theme, with easy colour and font customisations. Designed to read well on all device sizes.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blue, green, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-menu, featured-images, microformats, sticky-post.
+Text Domain: horizon-azur
 
-/*  SCSS for the horizon-azur theme */
-/*  built by @eurydice13           */
+This theme, like WordPress, is licensed under the GPL.
+Use it as you please, and always tell others where you found it.
+*/
 
 @import url("http://fonts.googleapis.com/css?family=Open+Sans");
 
-$fontpackage : "Open Sans", sans-serif;
 
+@media all and (max-width: 699px) and (min-width: 520px) {
+
+        /* Your selectors */
+}
+
+/* GLOBAL VARIABLES */
+/* fonts */
+$serif-font: "lemonde-courrier";
+$sans-serif-font: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif;
+
+/* Body parameters */
 $BODY_BKG_color: #00a6b9;
 //$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
 $BODY_BKG_DARK_color: #00616D;
 $BODY_color: #FFFFFF;
-$BODY_size: 1.2em;
+$BODY_size: 1.5em;
 
+/* Layout parameters */
 $POST_TITLE_size: 2.3rem;
 $POST_width: 64ch;
+$SIDEBAR_width: 24ch;
 
+/* Content parameters */
 $LINK_color: #ABF358;
 
 $BUTTON_text_color: $BODY_color;
@@ -37,14 +62,105 @@ $CATEGORY_size: 0.8rem;
 body {
   background-color: $BODY_BKG_color;
   color: $BODY_color;
-  font-family: "Open Sans", sans serif;
+  font-family: $serif-font;
   font-size:$BODY_size;
+  letter-spacing: 1.3px;
   /* in reality my fonts will be taken care of by typekit */
 }
 
-a, a:active {
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: $sans-serif-font;
+}
+
+a,
+a:active {
   color: $LINK_color;
 }
+
+
+.header{
+  display: block;
+  clear: both;
+  margin: 2em auto 0 auto;
+  max-width: $POST_width + $SIDEBAR_width;
+}
+
+.header--avatar{
+  display: block;
+  float: left;
+
+  width: 200px;
+  height: 200px;
+  background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
+  background-position: -15px 0px;
+  background-size: cover;
+
+  border-radius: 6em;
+}
+
+.header--text{
+  display: block;
+  position:relative;
+  left: 30px;
+}
+
+.-name{
+font-size: 2.3rem;
+font-family: $serif-font;
+line-height: 3rem;
+}
+
+.-username{
+font-size: 1.2rem;
+font-family: $sans-serif-font;
+}
+
+.-blurb{
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  font-family: $sans-serif-font;
+
+}
+
+.header--social{
+  display: block;
+  float: left;
+
+  width: auto;
+  height: 100px;
+}
+
+
+/* NAV */
+
+
+nav li,
+nav ul {
+	float: left;
+	position: relative;
+	background-color: #00616D;
+	-moz-transition: color .25s ease-in-out;
+	-webkit-transition: color .25s ease-in-out;
+	transition: color .25s ease-in-out;
+	-moz-transition: background-color .25s ease-in-out;
+	-webkit-transition: background-color .25s ease-in-out;
+	transition: background-color .25s ease-in-out;
+}
+
+/* CONTENT */
+
+
+.contentcontainer{
+  display: block;
+  float: left;
+  margin: 3em;
+}
+
 
 /* Basic post block in a list */
 

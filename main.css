@@ -1,6 +1,26 @@
-/*  SCSS for the horizon-azur theme */
-/*  built by @eurydice13           */
+/*
+Theme Name: horizon-azur
+Theme URI: http://wordpress.org/themes/horizon-azur
+Author: Sophie Exintaris (@eurydice13)
+Author URI: http://eurydice13.com
+Description: A simple theme, with easy colour and font customisations. Designed to read well on all device sizes.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blue, green, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-menu, featured-images, microformats, sticky-post.
+Text Domain: horizon-azur
+
+This theme, like WordPress, is licensed under the GPL.
+Use it as you please, and always tell others where you found it.
+*/
 @import url("http://fonts.googleapis.com/css?family=Open+Sans");
+@media all and (max-width: 699px) and (min-width: 520px) {
+  /* Your selectors */ }
+/* GLOBAL VARIABLES */
+/* fonts */
+/* Body parameters */
+/* Layout parameters */
+/* Content parameters */
 /* basics */
 * {
   margin: 0;
@@ -10,12 +30,82 @@
 body {
   background-color: #00a6b9;
   color: #FFFFFF;
-  font-family: "Open Sans", sans serif;
-  font-size: 1.2em;
+  font-family: "lemonde-courrier";
+  font-size: 1.5em;
+  letter-spacing: 1.3px;
   /* in reality my fonts will be taken care of by typekit */ }
 
-a, a:active {
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif; }
+
+a,
+a:active {
   color: #ABF358; }
+
+.header {
+  display: block;
+  clear: both;
+  margin: 2em auto 0 auto;
+  max-width: 88ch; }
+
+.header--avatar {
+  display: block;
+  float: left;
+  width: 200px;
+  height: 200px;
+  background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
+  background-position: -15px 0px;
+  background-size: cover;
+  border-radius: 6em; }
+
+.header--text {
+  display: block;
+  position: relative;
+  left: 30px; }
+
+.-name {
+  font-size: 2.3rem;
+  font-family: "lemonde-courrier";
+  line-height: 3rem; }
+
+.-username {
+  font-size: 1.2rem;
+  font-family: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif; }
+
+.-blurb {
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.3rem;
+  font-family: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif; }
+
+.header--social {
+  display: block;
+  float: left;
+  width: auto;
+  height: 100px; }
+
+/* NAV */
+nav li,
+nav ul {
+  float: left;
+  position: relative;
+  background-color: #00616D;
+  -moz-transition: color .25s ease-in-out;
+  -webkit-transition: color .25s ease-in-out;
+  transition: color .25s ease-in-out;
+  -moz-transition: background-color .25s ease-in-out;
+  -webkit-transition: background-color .25s ease-in-out;
+  transition: background-color .25s ease-in-out; }
+
+/* CONTENT */
+.contentcontainer {
+  display: block;
+  float: left;
+  margin: 3em; }
 
 /* Basic post block in a list */
 .post, .post-fullpage {
