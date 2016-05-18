@@ -1,9 +1,67 @@
 // main.scss
+/*
+Theme Name: horizon-azur
+Theme URI: http://wordpress.org/themes/horizon-azur
+Author: Sophie Exintaris (@eurydice13)
+Author URI: http://eurydice13.com
+Description: A simple theme, with easy colour and font customisations. Designed to read well on all device sizes.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blue, green, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-menu, featured-images, microformats, sticky-post.
+Text Domain: horizon-azur
 
-/*  SCSS for the horizon-azur theme */
-/*  built by @eurydice13           */
+This theme, like WordPress, is licensed under the GPL.
+Use it as you please, and always tell others where you found it.
+*/
 
 @import url("http://fonts.googleapis.com/css?family=Open+Sans");
+
+
+@media all and (max-width: 699px) and (min-width: 520px) {
+        /* Your selectors */
+}
+
+/* MIXINS */
+
+@mixin debug() {
+  border: #FF0000 2px solid;
+}
+
+/* GLOBAL VARIABLES */
+/* fonts */
+$serif-font: "lemonde-courrier", serif;
+$sans-serif-font: "Droid-sans", "Quattrocentro", sans-serif;
+
+/* Body parameters */
+$BODY_BKG_color: #00a6b9;
+//$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
+$BODY_BKG_DARK_color: #00616D;
+$BODY_color: #FFFFFF;
+$BODY_size: 1.4em;
+
+$HEADER_name_size: $BODY_size * 1.4;
+$HEADER_username_size: $BODY_size * 0.6;
+$HEADER_quote_size: $BODY_size * 1.2;
+$HEADER_blurb_size: $BODY_size * 0.8;
+
+/* Layout parameters */
+$POST_TITLE_size: 2.3rem;
+$POST_width: 60ch;
+$SIDEBAR_width: 24ch;
+
+/* Content parameters */
+$LINK_color: #ABF358;
+
+$BUTTON_text_color: $BODY_color;
+$BUTTON_color: $BODY_BKG_DARK_color;
+
+$METADATA_color: $BODY_BKG_DARK_color;
+$METADATA_size: 0.8rem;
+
+$CATEGORY_BKG_color: $BODY_BKG_DARK_color;
+$CATEGORY_size: $BODY_size * 0.42;
+$CATEGORY_width: 30ch;
 
 /* basics */
 * {
@@ -13,83 +71,214 @@
 }
 
 body {
-  background-color: #f6f6f6;
-  font-family: "Open Sans", sans serif;
-  font-size:1.2em;
+  background-color: $BODY_BKG_color;
+  color: $BODY_color;
+  font-family: $serif-font;
+  font-size:$BODY_size;
+  letter-spacing: 1.5px;
+  line-height: 1.3em;
+  font-weight: normal;
   /* in reality my fonts will be taken care of by typekit */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: $sans-serif-font;
+}
+
+a,
+a:active {
+  color: $LINK_color;
+}
+
+
+.header{
+  display: block;
+  clear: both;
+  margin: 2em auto 2em auto;
+  position: relative;
+  max-width: $POST_width + $SIDEBAR_width;
+}
+
+.header--main{
+  float: left;
+}
+
+.header--avatar{
+  display: block;
+  float: left;
+
+  width: 120px;
+  height: 120px;
+  background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
+  background-position: -10px 0px;
+  background-size: cover;
+
+  border-radius: 6em;
+}
+
+.header--text{
+  display: block;
+  position:relative;
+  left: 30px;
+}
+
+.-name{
+  font-size: $HEADER_name_size;
+  font-family: $serif-font;
+  line-height: 3rem;
+}
+
+.-username{
+  font-size: $HEADER_username_size;
+  font-family: $sans-serif-font;
+}
+
+.-subtitle{
+  font-size: $HEADER_name_size * 0.9;
+  font-family: $sans-serif-font;
+  margin-top:10px;
+  line-height: 3rem;
+}
+
+.-blurb{
+  clear:both;
+  margin-top: 1.2rem;
+  font-size: $HEADER_blurb_size;
+  font-family: $sans-serif-font;
+  position:relative;;
+  margin: 40px auto 40px auto;
+  max-width: $POST_width;
+}
+
+.header--social{
+  display: block;
+  float: right;
+
+    & ul li{
+    background-color: $LINK_color;
+    border-radius: 3em;
+    padding: 1ch 0.2ch 1ch 0.2ch;
+    margin:0 1em 0.2em 1em;
+    width: 100%;
+    list-style: none;
+    display: block;
+    text-align: center;
+    }
+
+    & a, a:visited{
+      color: $BODY_color;
+    }
+}
+
+
+/* NAV */
+
+
+nav li,
+nav ul {
+	float: left;
+	position: relative;
+	background-color: #00616D;
+	-moz-transition: color .25s ease-in-out;
+	-webkit-transition: color .25s ease-in-out;
+	transition: color .25s ease-in-out;
+	-moz-transition: background-color .25s ease-in-out;
+	-webkit-transition: background-color .25s ease-in-out;
+	transition: background-color .25s ease-in-out;
+}
+
+/* CONTENT */
+
+.alltheposts{
+  margin:0 auto 0 auto;
+  position: relative;
+  max-width: $POST_width + 2ch;
+}
+
+.contentcontainer{
+  display: block;
+  float: left;
+  margin: 0 auto 0 auto;
 }
 
 /* Basic post block in a list */
 
 .post{
   display: block;
-  max-width: 55ch;
+  max-width: $POST_width;
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
-  clear:left;
-
   position: relative;
 }
 
+.-one-col{
+  max-width: $POST_width;
+}
+
+.-two-col{
+  max-width: $POST_width / 2;
+  float: left;
+}
+
+.-three-col{
+  max-width: $POST_width / 3;
+  float: left;
+}
+
+.post-fullpage{
+  @extend .post;
+  max-width: $POST_width;
+}
 /* modifiers */
 
 
 /* elements */
 
 .post--categories{
-  font-size: 0.8em;
-  width:153px;
-  position: absolute;
-  left: -150px;
-  z-index: -1;
-}
+  font-size: $CATEGORY_size;
 
-  .-post-page{
-    color:#990000;
+    & ul li{
+    background-color: $CATEGORY_BKG_color;
+    border-radius: 1em;
+    padding: 0.2em 2ch 0.2em 2ch;
+    margin:0.1em 0.2em 0.2em 0.1em;
+
+    max-width:$CATEGORY_width;
+    list-style: none;
+    display: block;
+    float: left;
+    }
   }
 
-/* need a media query version of the post-categories block for smaller screens, so it tucks in as a horizontal bar */
+.-post--categories--full-page{
+   border-left: solid 2px #00aabb;
+   clear: both;
+    & ul li{
+        max-width: $CATEGORY_width;
+    }
+  }
 
-.post--categories ul li{
-  background-color: #CCCCCC;
-  padding: 1em 0.4em 0.3em 0.4em;
-  margin:0 1em 0.2em 0;
-  width: 100%;
-  list-style: none;
-  display: block;
-  float: left;
-}
 
 .post--title{
-  font-size: 2em;
-  line-height: 1.5em;
+  font-size: $POST_TITLE_size;
+  line-height: 1.5 * $POST_TITLE_size;
   margin: 0.5em auto 0.3em 0;
-  clear: left;
-
+  clear: both;
 }
-  .-post-page{
-    color:#009900;
-  }
 
+.-post--title--fullpage{
+  @extend .post--title;
+  clear:both;
+}
 
 .post--image{
   display: block;
-  float: right;
-  min-width: 200px;
-  min-height: 200px;
-  width:45%;
-  margin: 0 0 0.5em 1em;
-
-  background-image: url(kitten_1-1.jpg);
-  background-clip: content-box;
-  background-size: cover;
-}
-
-.-mostrecent{
-  width:100%;
-  height: 300px;
-  margin: 0 0 0.5em 0;
-  clear: both;
+  clear:both;
+  min-height: 300px;
   width:100%;
   margin: 0 0 0.5em 0;
 
@@ -97,26 +286,49 @@ body {
   background-clip: content-box;
   background-size: cover;
   background-position: center;
-  }
+}
+
+.-post--image--fullpage{
+  clear:both;
+  min-width: 320px;
+  min-height: 320px;
+  width:$CATEGORY_width + $POST_width;
+
+  position:relative;;
+  right: $CATEGORY_width;
+
+  margin: auto auto auto 0;
+
+  background-image: url(kitten_1-1.jpg);
+  background-size: cover;
+  background-position: center;
+}
 
 .post--excerpt{
   margin: 0 auto 0.5em 0;
+  clear: left;
 }
 
 .post--metadata{
-  float:left;
-  margin:0.2em 1em 0.2em 0;
+  margin:0em 1em 0.2em 0;
   vertical-align: bottom;
-  font-size: 0.85em;
-  color:#888;
+  font-size: $METADATA_size;
+  color:$METADATA_color;
 }
   .-when{
+  float:left;
 
   }
   .-author{
-
+  float:left;
   }
   .-tags{
     clear:both;
-
   }
+  .-duration{
+    clear:right;
+  }
+
+.-post--metadata--fullpage{
+
+}
