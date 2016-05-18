@@ -32,13 +32,14 @@ Use it as you please, and always tell others where you found it.
 /* fonts */
 $serif-font: "lemonde-courrier", serif;
 $sans-serif-font: "Droid-sans", "Quattrocentro", sans-serif;
+$BODY_size: 1.4em;
 
 /* Body parameters */
 $BODY_BKG_color: #00a6b9;
 //$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
 $BODY_BKG_DARK_color: #00616D;
 $BODY_color: #FFFFFF;
-$BODY_size: 1.4em;
+//$BODY_size: 1.4em;
 
 $HEADER_name_size: $BODY_size * 1.4;
 $HEADER_username_size: $BODY_size * 0.6;
@@ -60,8 +61,10 @@ $METADATA_color: $BODY_BKG_DARK_color;
 $METADATA_size: 0.8rem;
 
 $CATEGORY_BKG_color: $BODY_BKG_DARK_color;
-$CATEGORY_size: $BODY_size * 0.42;
-$CATEGORY_width: 30ch;
+$CATEGORY_size: $BODY_size * 0.6;
+$CATEGORY_width: 27ch;
+
+
 
 /* basics */
 * {
@@ -75,8 +78,8 @@ body {
   color: $BODY_color;
   font-family: $serif-font;
   font-size:$BODY_size;
-  letter-spacing: 1.5px;
-  line-height: 1.3em;
+  letter-spacing: 1.3px;
+  line-height: 1.05 * $BODY_size;
   font-weight: normal;
   /* in reality my fonts will be taken care of by typekit */
 }
@@ -110,7 +113,8 @@ a:active {
 .header--avatar{
   display: block;
   float: left;
-
+  position: relative;
+  margin: 10px 10px 10px 10px;
   width: 120px;
   height: 120px;
   background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
@@ -120,10 +124,24 @@ a:active {
   border-radius: 6em;
 }
 
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .header--avatar{
+    clear:both !important;
+    float: none !important;
+    margin: 10px auto 10px auto !important;
+  }
+
+  .header--text{
+    clear:both;
+    margin: 10px auto 10px auto;
+    text-align: center;
+  }
+}
+
 .header--text{
   display: block;
   position:relative;
-  left: 30px;
+  left: 10px;
 }
 
 .-name{
@@ -138,7 +156,7 @@ a:active {
 }
 
 .-subtitle{
-  font-size: $HEADER_name_size * 0.9;
+  font-size: $HEADER_name_size * 0.8;
   font-family: $sans-serif-font;
   margin-top:10px;
   line-height: 3rem;
@@ -146,11 +164,10 @@ a:active {
 
 .-blurb{
   clear:both;
-  margin-top: 1.2rem;
   font-size: $HEADER_blurb_size;
   font-family: $sans-serif-font;
   position:relative;;
-  margin: 40px auto 40px auto;
+  margin: 40px auto 20px auto;
   max-width: $POST_width;
 }
 
@@ -177,19 +194,44 @@ a:active {
 
 /* NAV */
 
+nav{
+  clear: both;
+  display: block;
+  margin: 0 auto 0 auto;
+  position: relative;
+  background-color: $BODY_BKG_DARK_color;
+  font-family: $sans-serif-font;
 
-nav li,
-nav ul {
-	float: left;
-	position: relative;
-	background-color: #00616D;
-	-moz-transition: color .25s ease-in-out;
-	-webkit-transition: color .25s ease-in-out;
-	transition: color .25s ease-in-out;
-	-moz-transition: background-color .25s ease-in-out;
-	-webkit-transition: background-color .25s ease-in-out;
-	transition: background-color .25s ease-in-out;
+  text-align: center;
+
+  & a, a:visited{
+    margin: 0 auto 0 auto;
+    display: inline-block;
+    padding: 1.5ch 1ch 1ch 1ch;
+    text-decoration: none;
+    -moz-transition: color .25s ease-in-out;
+    -webkit-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+    transition: background-color .25s ease-in-out;
+  }
+
+  & a:hover{
+    background-color: $BODY_BKG_color;
+  }
+
+  & a.currentpage{
+    background-color: $BODY_BKG_color;
+    color: $BODY_color;
+  }
+
+  & a.blanklink{
+    width:$POST_width / 3;
+  }
 }
+
+
 
 /* CONTENT */
 
@@ -210,7 +252,7 @@ nav ul {
 .post{
   display: block;
   max-width: $POST_width;
-  margin: 5em auto 0 auto;
+  margin: 2em auto 0 auto;
   padding: 0 1em 0 1em;
   position: relative;
 }
@@ -331,4 +373,13 @@ nav ul {
 
 .-post--metadata--fullpage{
 
+}
+
+
+@media all and (max-width: 768px) and (min-width: 320px) {
+   body{
+       font-size: 1em;
+   }
+
+   $BODY_size: 1em;
 }
