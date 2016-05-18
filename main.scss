@@ -197,7 +197,6 @@ nav ul {
   margin:0 auto 0 auto;
   position: relative;
   max-width: $POST_width + 2ch;
-  @include debug();
 }
 
 .contentcontainer{
