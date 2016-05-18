@@ -19,25 +19,35 @@ Use it as you please, and always tell others where you found it.
 
 
 @media all and (max-width: 699px) and (min-width: 520px) {
-
         /* Your selectors */
+}
+
+/* MIXINS */
+
+@mixin debug() {
+  border: #FF0000 2px solid;
 }
 
 /* GLOBAL VARIABLES */
 /* fonts */
-$serif-font: "lemonde-courrier";
-$sans-serif-font: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif;
+$serif-font: "lemonde-courrier", serif;
+$sans-serif-font: "Droid-sans", "Quattrocentro", sans-serif;
 
 /* Body parameters */
 $BODY_BKG_color: #00a6b9;
 //$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
 $BODY_BKG_DARK_color: #00616D;
 $BODY_color: #FFFFFF;
-$BODY_size: 1.5em;
+$BODY_size: 1.4em;
+
+$HEADER_name_size: $BODY_size * 1.4;
+$HEADER_username_size: $BODY_size * 0.6;
+$HEADER_quote_size: $BODY_size * 1.2;
+$HEADER_blurb_size: $BODY_size * 0.8;
 
 /* Layout parameters */
 $POST_TITLE_size: 2.3rem;
-$POST_width: 64ch;
+$POST_width: 60ch;
 $SIDEBAR_width: 24ch;
 
 /* Content parameters */
@@ -50,7 +60,8 @@ $METADATA_color: $BODY_BKG_DARK_color;
 $METADATA_size: 0.8rem;
 
 $CATEGORY_BKG_color: $BODY_BKG_DARK_color;
-$CATEGORY_size: 0.8rem;
+$CATEGORY_size: $BODY_size * 0.42;
+$CATEGORY_width: 30ch;
 
 /* basics */
 * {
@@ -64,7 +75,9 @@ body {
   color: $BODY_color;
   font-family: $serif-font;
   font-size:$BODY_size;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.5px;
+  line-height: 1.3em;
+  font-weight: normal;
   /* in reality my fonts will be taken care of by typekit */
 }
 
@@ -85,18 +98,23 @@ a:active {
 .header{
   display: block;
   clear: both;
-  margin: 2em auto 0 auto;
+  margin: 2em auto 2em auto;
+  position: relative;
   max-width: $POST_width + $SIDEBAR_width;
+}
+
+.header--main{
+  float: left;
 }
 
 .header--avatar{
   display: block;
   float: left;
 
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
-  background-position: -15px 0px;
+  background-position: -10px 0px;
   background-size: cover;
 
   border-radius: 6em;
@@ -109,30 +127,51 @@ a:active {
 }
 
 .-name{
-font-size: 2.3rem;
-font-family: $serif-font;
-line-height: 3rem;
+  font-size: $HEADER_name_size;
+  font-family: $serif-font;
+  line-height: 3rem;
 }
 
 .-username{
-font-size: 1.2rem;
-font-family: $sans-serif-font;
+  font-size: $HEADER_username_size;
+  font-family: $sans-serif-font;
+}
+
+.-subtitle{
+  font-size: $HEADER_name_size * 0.9;
+  font-family: $sans-serif-font;
+  margin-top:10px;
+  line-height: 3rem;
 }
 
 .-blurb{
+  clear:both;
   margin-top: 1.2rem;
-  font-size: 1rem;
-  line-height: 1.3rem;
+  font-size: $HEADER_blurb_size;
   font-family: $sans-serif-font;
-
+  position:relative;;
+  margin: 40px auto 40px auto;
+  max-width: $POST_width;
 }
 
 .header--social{
   display: block;
-  float: left;
+  float: right;
 
-  width: auto;
-  height: 100px;
+    & ul li{
+    background-color: $LINK_color;
+    border-radius: 3em;
+    padding: 1ch 0.2ch 1ch 0.2ch;
+    margin:0 1em 0.2em 1em;
+    width: 100%;
+    list-style: none;
+    display: block;
+    text-align: center;
+    }
+
+    & a, a:visited{
+      color: $BODY_color;
+    }
 }
 
 
@@ -154,13 +193,18 @@ nav ul {
 
 /* CONTENT */
 
+.alltheposts{
+  margin:0 auto 0 auto;
+  position: relative;
+  max-width: $POST_width + 2ch;
+  @include debug();
+}
 
 .contentcontainer{
   display: block;
   float: left;
-  margin: 3em;
+  margin: 0 auto 0 auto;
 }
-
 
 /* Basic post block in a list */
 
@@ -169,8 +213,21 @@ nav ul {
   max-width: $POST_width;
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
-  clear:left;
   position: relative;
+}
+
+.-one-col{
+  max-width: $POST_width;
+}
+
+.-two-col{
+  max-width: $POST_width / 2;
+  float: left;
+}
+
+.-three-col{
+  max-width: $POST_width / 3;
+  float: left;
 }
 
 .post-fullpage{
@@ -184,16 +241,14 @@ nav ul {
 
 .post--categories{
   font-size: $CATEGORY_size;
-  width:25ch;
-  position: absolute;
-  left: -25ch;
-  z-index: -1;
 
     & ul li{
     background-color: $CATEGORY_BKG_color;
-    padding: 1em 0.4em 0.3em 0.4em;
-    margin:0 1em 0.2em 0;
-    width: 100%;
+    border-radius: 1em;
+    padding: 0.2em 2ch 0.2em 2ch;
+    margin:0.1em 0.2em 0.2em 0.1em;
+
+    max-width:$CATEGORY_width;
     list-style: none;
     display: block;
     float: left;
@@ -204,10 +259,8 @@ nav ul {
    border-left: solid 2px #00aabb;
    clear: both;
     & ul li{
-        max-width: 30ch;
-
+        max-width: $CATEGORY_width;
     }
-
   }
 
 
@@ -215,7 +268,7 @@ nav ul {
   font-size: $POST_TITLE_size;
   line-height: 1.5 * $POST_TITLE_size;
   margin: 0.5em auto 0.3em 0;
-  clear: left;
+  clear: both;
 }
 
 .-post--title--fullpage{
@@ -225,11 +278,10 @@ nav ul {
 
 .post--image{
   display: block;
-  float: right;
-  min-width: 200px;
-  min-height: 200px;
-  width:45%;
-  margin: 0 0 0.5em 1em;
+  clear:both;
+  min-height: 300px;
+  width:100%;
+  margin: 0 0 0.5em 0;
 
   background-image: url(kitten_1-1.jpg);
   background-clip: content-box;
@@ -240,49 +292,42 @@ nav ul {
 .-post--image--fullpage{
   clear:both;
   min-width: 320px;
-  min-height: 280px;
-  width:1.2 * $POST_width;
+  min-height: 320px;
+  width:$CATEGORY_width + $POST_width;
 
-  right: 0.2 * $POST_width;
+  position:relative;;
+  right: $CATEGORY_width;
+
+  margin: auto auto auto 0;
+
   background-image: url(kitten_1-1.jpg);
   background-size: cover;
   background-position: center;
 }
-
-.-mostrecent{
-  width:100%;
-  height: 300px;
-  margin: 0 0 0.5em 0;
-  clear: both;
-  width:100%;
-  margin: 0 0 0.5em 0;
-
-  background-image: url(kitten_1-1.jpg);
-  background-clip: content-box;
-  background-size: cover;
-  background-position: center;
-  }
 
 .post--excerpt{
   margin: 0 auto 0.5em 0;
+  clear: left;
 }
 
 .post--metadata{
-  float:left;
-  margin:0.2em 2em 0.2em 0;
+  margin:0em 1em 0.2em 0;
   vertical-align: bottom;
   font-size: $METADATA_size;
   color:$METADATA_color;
 }
   .-when{
+  float:left;
 
   }
   .-author{
-
+  float:left;
   }
   .-tags{
     clear:both;
-
+  }
+  .-duration{
+    clear:right;
   }
 
 .-post--metadata--fullpage{

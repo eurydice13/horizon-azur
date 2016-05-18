@@ -16,6 +16,7 @@ Use it as you please, and always tell others where you found it.
 @import url("http://fonts.googleapis.com/css?family=Open+Sans");
 @media all and (max-width: 699px) and (min-width: 520px) {
   /* Your selectors */ }
+/* MIXINS */
 /* GLOBAL VARIABLES */
 /* fonts */
 /* Body parameters */
@@ -30,9 +31,11 @@ Use it as you please, and always tell others where you found it.
 body {
   background-color: #00a6b9;
   color: #FFFFFF;
-  font-family: "lemonde-courrier";
-  font-size: 1.5em;
-  letter-spacing: 1.3px;
+  font-family: "lemonde-courrier", serif;
+  font-size: 1.4em;
+  letter-spacing: 1.5px;
+  line-height: 1.3em;
+  font-weight: normal;
   /* in reality my fonts will be taken care of by typekit */ }
 
 h1,
@@ -40,7 +43,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif; }
+  font-family: "Droid-sans", "Quattrocentro", sans-serif; }
 
 a,
 a:active {
@@ -49,16 +52,20 @@ a:active {
 .header {
   display: block;
   clear: both;
-  margin: 2em auto 0 auto;
-  max-width: 88ch; }
+  margin: 2em auto 2em auto;
+  position: relative;
+  max-width: 84ch; }
+
+.header--main {
+  float: left; }
 
 .header--avatar {
   display: block;
   float: left;
-  width: 200px;
-  height: 200px;
+  width: 120px;
+  height: 120px;
   background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
-  background-position: -15px 0px;
+  background-position: -10px 0px;
   background-size: cover;
   border-radius: 6em; }
 
@@ -68,25 +75,43 @@ a:active {
   left: 30px; }
 
 .-name {
-  font-size: 2.3rem;
-  font-family: "lemonde-courrier";
+  font-size: 1.96em;
+  font-family: "lemonde-courrier", serif;
   line-height: 3rem; }
 
 .-username {
-  font-size: 1.2rem;
-  font-family: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif; }
+  font-size: 0.84em;
+  font-family: "Droid-sans", "Quattrocentro", sans-serif; }
+
+.-subtitle {
+  font-size: 1.764em;
+  font-family: "Droid-sans", "Quattrocentro", sans-serif;
+  margin-top: 10px;
+  line-height: 3rem; }
 
 .-blurb {
+  clear: both;
   margin-top: 1.2rem;
-  font-size: 1rem;
-  line-height: 1.3rem;
-  font-family: "Open Sans", "Droid Sans", "Quattrocentro", sans-serif; }
+  font-size: 1.12em;
+  font-family: "Droid-sans", "Quattrocentro", sans-serif;
+  position: relative;
+  margin: 40px auto 40px auto;
+  max-width: 60ch; }
 
 .header--social {
   display: block;
-  float: left;
-  width: auto;
-  height: 100px; }
+  float: right; }
+  .header--social ul li {
+    background-color: #ABF358;
+    border-radius: 3em;
+    padding: 1ch 0.2ch 1ch 0.2ch;
+    margin: 0 1em 0.2em 1em;
+    width: 100%;
+    list-style: none;
+    display: block;
+    text-align: center; }
+  .header--social a, .header--social a:visited {
+    color: #FFFFFF; }
 
 /* NAV */
 nav li,
@@ -102,36 +127,49 @@ nav ul {
   transition: background-color .25s ease-in-out; }
 
 /* CONTENT */
+.alltheposts {
+  margin: 0 auto 0 auto;
+  position: relative;
+  max-width: 62ch;
+  border: #FF0000 2px solid; }
+
 .contentcontainer {
   display: block;
   float: left;
-  margin: 3em; }
+  margin: 0 auto 0 auto; }
 
 /* Basic post block in a list */
 .post, .post-fullpage {
   display: block;
-  max-width: 64ch;
+  max-width: 60ch;
   margin: 5em auto 0 auto;
   padding: 0 1em 0 1em;
-  clear: left;
   position: relative; }
 
+.-one-col {
+  max-width: 60ch; }
+
+.-two-col {
+  max-width: 30ch;
+  float: left; }
+
+.-three-col {
+  max-width: 20ch;
+  float: left; }
+
 .post-fullpage {
-  max-width: 64ch; }
+  max-width: 60ch; }
 
 /* modifiers */
 /* elements */
 .post--categories {
-  font-size: 0.8rem;
-  width: 25ch;
-  position: absolute;
-  left: -25ch;
-  z-index: -1; }
+  font-size: 0.588em; }
   .post--categories ul li {
     background-color: #00616D;
-    padding: 1em 0.4em 0.3em 0.4em;
-    margin: 0 1em 0.2em 0;
-    width: 100%;
+    border-radius: 1em;
+    padding: 0.2em 2ch 0.2em 2ch;
+    margin: 0.1em 0.2em 0.2em 0.1em;
+    max-width: 30ch;
     list-style: none;
     display: block;
     float: left; }
@@ -146,18 +184,17 @@ nav ul {
   font-size: 2.3rem;
   line-height: 3.45rem;
   margin: 0.5em auto 0.3em 0;
-  clear: left; }
+  clear: both; }
 
 .-post--title--fullpage {
   clear: both; }
 
 .post--image {
   display: block;
-  float: right;
-  min-width: 200px;
-  min-height: 200px;
-  width: 45%;
-  margin: 0 0 0.5em 1em;
+  clear: both;
+  min-height: 300px;
+  width: 100%;
+  margin: 0 0 0.5em 0;
   background-image: url(kitten_1-1.jpg);
   background-clip: content-box;
   background-size: cover;
@@ -166,36 +203,35 @@ nav ul {
 .-post--image--fullpage {
   clear: both;
   min-width: 320px;
-  min-height: 280px;
-  width: 76.8ch;
-  right: 12.8ch;
+  min-height: 320px;
+  width: 90ch;
+  position: relative;
+  right: 30ch;
+  margin: auto auto auto 0;
   background-image: url(kitten_1-1.jpg);
-  background-size: cover;
-  background-position: center; }
-
-.-mostrecent {
-  width: 100%;
-  height: 300px;
-  margin: 0 0 0.5em 0;
-  clear: both;
-  width: 100%;
-  margin: 0 0 0.5em 0;
-  background-image: url(kitten_1-1.jpg);
-  background-clip: content-box;
   background-size: cover;
   background-position: center; }
 
 .post--excerpt {
-  margin: 0 auto 0.5em 0; }
+  margin: 0 auto 0.5em 0;
+  clear: left; }
 
 .post--metadata {
-  float: left;
-  margin: 0.2em 2em 0.2em 0;
+  margin: 0em 1em 0.2em 0;
   vertical-align: bottom;
   font-size: 0.8rem;
   color: #00616D; }
 
+.-when {
+  float: left; }
+
+.-author {
+  float: left; }
+
 .-tags {
   clear: both; }
+
+.-duration {
+  clear: right; }
 
 /*# sourceMappingURL=main.css.map */
