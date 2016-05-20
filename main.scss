@@ -32,13 +32,18 @@ Use it as you please, and always tell others where you found it.
 /* fonts */
 $serif-font: "lemonde-courrier", serif;
 $sans-serif-font: "Droid-sans", "Quattrocentro", sans-serif;
+$BODY_size: 1.4em;
 
 /* Body parameters */
 $BODY_BKG_color: #00a6b9;
 //$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
 $BODY_BKG_DARK_color: #00616D;
+$BODY_BKG_DARK_color_transparent: transparentize($BODY_BKG_DARK_color, 0.4);
+
+/* rgba(0,97,109,0.6); */
+
 $BODY_color: #FFFFFF;
-$BODY_size: 1.4em;
+//$BODY_size: 1.4em;
 
 $HEADER_name_size: $BODY_size * 1.4;
 $HEADER_username_size: $BODY_size * 0.6;
@@ -48,6 +53,10 @@ $HEADER_blurb_size: $BODY_size * 0.8;
 /* Layout parameters */
 $POST_TITLE_size: 2.3rem;
 $POST_width: 60ch;
+
+$IMAGE_height: 28ch;
+$SINGLE_image_height: 40ch;
+
 $SIDEBAR_width: 24ch;
 
 /* Content parameters */
@@ -60,8 +69,10 @@ $METADATA_color: $BODY_BKG_DARK_color;
 $METADATA_size: 0.8rem;
 
 $CATEGORY_BKG_color: $BODY_BKG_DARK_color;
-$CATEGORY_size: $BODY_size * 0.42;
-$CATEGORY_width: 30ch;
+$CATEGORY_size: $BODY_size * 0.6;
+$CATEGORY_width: 27ch;
+
+
 
 /* basics */
 * {
@@ -75,8 +86,8 @@ body {
   color: $BODY_color;
   font-family: $serif-font;
   font-size:$BODY_size;
-  letter-spacing: 1.5px;
-  line-height: 1.3em;
+  letter-spacing: 1.3px;
+  line-height: 1.05 * $BODY_size;
   font-weight: normal;
   /* in reality my fonts will be taken care of by typekit */
 }
@@ -110,7 +121,8 @@ a:active {
 .header--avatar{
   display: block;
   float: left;
-
+  position: relative;
+  margin: 10px 10px 10px 10px;
   width: 120px;
   height: 120px;
   background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
@@ -120,10 +132,34 @@ a:active {
   border-radius: 6em;
 }
 
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .header--avatar{
+    clear:both !important;
+    float: none !important;
+    margin: 10px auto 10px auto !important;
+  }
+
+  .header--text{
+    clear:both;
+    margin: 5px auto 5px auto !important;
+    text-align: center;
+  }
+
+  .-blurb{
+    margin-top: 15px !important;
+  }
+
+  .-subtitle{
+    margin-top:10px;
+    line-height: 2rem !important;
+  }
+
+} /* media */
+
 .header--text{
   display: block;
   position:relative;
-  left: 30px;
+  left: 10px;
 }
 
 .-name{
@@ -138,7 +174,7 @@ a:active {
 }
 
 .-subtitle{
-  font-size: $HEADER_name_size * 0.9;
+  font-size: $HEADER_name_size * 0.8;
   font-family: $sans-serif-font;
   margin-top:10px;
   line-height: 3rem;
@@ -146,11 +182,10 @@ a:active {
 
 .-blurb{
   clear:both;
-  margin-top: 1.2rem;
   font-size: $HEADER_blurb_size;
   font-family: $sans-serif-font;
   position:relative;;
-  margin: 40px auto 40px auto;
+  margin: 40px auto 20px auto;
   max-width: $POST_width;
 }
 
@@ -177,26 +212,51 @@ a:active {
 
 /* NAV */
 
+nav{
+  clear: both;
+  display: block;
+  margin: 0 auto 0 auto;
+  position: relative;
+  background-color: $BODY_BKG_DARK_color;
+  font-family: $sans-serif-font;
 
-nav li,
-nav ul {
-	float: left;
-	position: relative;
-	background-color: #00616D;
-	-moz-transition: color .25s ease-in-out;
-	-webkit-transition: color .25s ease-in-out;
-	transition: color .25s ease-in-out;
-	-moz-transition: background-color .25s ease-in-out;
-	-webkit-transition: background-color .25s ease-in-out;
-	transition: background-color .25s ease-in-out;
+  text-align: center;
+
+  & a, a:visited{
+    margin: 0 auto 0 auto;
+    display: inline-block;
+    padding: 1.5ch 1ch 1ch 1ch;
+    text-decoration: none;
+    -moz-transition: color .25s ease-in-out;
+    -webkit-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+    transition: background-color .25s ease-in-out;
+  }
+
+  & a:hover{
+    background-color: $BODY_BKG_color;
+  }
+
+  & a.currentpage{
+    background-color: $BODY_BKG_color;
+    color: $BODY_color;
+  }
+
+  & a.blanklink{
+    max-width:$POST_width / 3;
+  }
 }
+
+
 
 /* CONTENT */
 
 .alltheposts{
   margin:0 auto 0 auto;
   position: relative;
-  max-width: $POST_width + 2ch;
+  max-width: $POST_width;
 }
 
 .contentcontainer{
@@ -210,29 +270,25 @@ nav ul {
 .post{
   display: block;
   max-width: $POST_width;
-  margin: 5em auto 0 auto;
-  padding: 0 1em 0 1em;
+  margin: 1em auto 0 auto;
+  padding: 0 2ch 0 2ch;
   position: relative;
 }
 
 .-one-col{
-  max-width: $POST_width;
+  max-width: 100%;
 }
 
 .-two-col{
-  max-width: $POST_width / 2;
+  max-width: 50%;
   float: left;
 }
 
 .-three-col{
-  max-width: $POST_width / 3;
+  max-width: 33.3%;
   float: left;
 }
 
-.post-fullpage{
-  @extend .post;
-  max-width: $POST_width;
-}
 /* modifiers */
 
 
@@ -270,15 +326,12 @@ nav ul {
   clear: both;
 }
 
-.-post--title--fullpage{
-  @extend .post--title;
-  clear:both;
-}
+/* post--image*/
 
 .post--image{
   display: block;
   clear:both;
-  min-height: 300px;
+  min-height: $IMAGE_height;
   width:100%;
   margin: 0 0 0.5em 0;
 
@@ -288,23 +341,31 @@ nav ul {
   background-position: center;
 }
 
-.-post--image--fullpage{
-  clear:both;
-  min-width: 320px;
-  min-height: 320px;
-  width:$CATEGORY_width + $POST_width;
+.post--single-image{
+  @extend .post--image;
+  height: $SINGLE_image_height;
+  margin: 0 auto 0 auto;
+  display: block;
+  position: relative;
+}
 
-  position:relative;;
-  right: $CATEGORY_width;
-
-  margin: auto auto auto 0;
-
-  background-image: url(kitten_1-1.jpg);
-  background-size: cover;
-  background-position: center;
+.post--single-title{
+  @extend .post--title;
+  position: relative;
+  top: $SINGLE_image_height /2.5;
+  max-width: $POST_width;
+  padding: 1ch 9ch 1ch 9ch;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  background: $BODY_BKG_DARK_color_transparent;
 }
 
 .post--excerpt{
+  margin: 0 auto 0.5em 0;
+  clear: left;
+}
+
+.post--text{
   margin: 0 auto 0.5em 0;
   clear: left;
 }
@@ -330,5 +391,72 @@ nav ul {
   }
 
 .-post--metadata--fullpage{
+
+}
+
+footer{
+  clear: both;
+  background-color: $BODY_BKG_DARK_color;
+  width:100%;
+}
+
+.footer--col-container{
+  margin: 0 auto 0 auto;
+  max-width: $POST_width + $SIDEBAR_width;
+}
+
+.footer{
+  display: block;
+  position: relative;
+  padding: 1.5ch 3ch 1ch 3ch;
+}
+
+.-left-top{
+  width: 50%;
+  float: left;
+  @include debug();
+}
+
+.-right-bottom{
+  width: 50%;
+  float: left;
+  @include debug();
+}
+
+.-full-bottom{
+  clear:both;
+  font-size: $BODY_size * 0.5;
+  color: $BODY_BKG_color;
+  width: 100%;
+}
+
+
+
+@media all and (max-width: 768px) and (min-width: 300px) {
+   body{
+       font-size: 1em;
+   }
+   .post--title{
+     font-size: 1.3em;
+     line-height: 1.7em;
+   }
+
+   .-left-top{
+     width: 100%;
+     clear: both;
+   }
+
+   .-right-bottom{
+     width: 100%;
+     clear: both;
+   }
+
+   .post--single-title{
+     padding: 1ch 3ch 1ch 3ch;
+   }
+
+
+$BODY_size: 1em !important;
+$POST_width: 95% !important;
 
 }

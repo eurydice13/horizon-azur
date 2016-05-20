@@ -20,6 +20,7 @@ Use it as you please, and always tell others where you found it.
 /* GLOBAL VARIABLES */
 /* fonts */
 /* Body parameters */
+/* rgba(0,97,109,0.6); */
 /* Layout parameters */
 /* Content parameters */
 /* basics */
@@ -33,8 +34,8 @@ body {
   color: #FFFFFF;
   font-family: "lemonde-courrier", serif;
   font-size: 1.4em;
-  letter-spacing: 1.5px;
-  line-height: 1.3em;
+  letter-spacing: 1.3px;
+  line-height: 1.47em;
   font-weight: normal;
   /* in reality my fonts will be taken care of by typekit */ }
 
@@ -62,6 +63,8 @@ a:active {
 .header--avatar {
   display: block;
   float: left;
+  position: relative;
+  margin: 10px 10px 10px 10px;
   width: 120px;
   height: 120px;
   background-image: url("http://eurydice13.com/SophieExintaris_eurydice13_avatar.jpg");
@@ -69,10 +72,28 @@ a:active {
   background-size: cover;
   border-radius: 6em; }
 
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .header--avatar {
+    clear: both !important;
+    float: none !important;
+    margin: 10px auto 10px auto !important; }
+
+  .header--text {
+    clear: both;
+    margin: 5px auto 5px auto !important;
+    text-align: center; }
+
+  .-blurb {
+    margin-top: 15px !important; }
+
+  .-subtitle {
+    margin-top: 10px;
+    line-height: 2rem !important; } }
+/* media */
 .header--text {
   display: block;
   position: relative;
-  left: 30px; }
+  left: 10px; }
 
 .-name {
   font-size: 1.96em;
@@ -84,18 +105,17 @@ a:active {
   font-family: "Droid-sans", "Quattrocentro", sans-serif; }
 
 .-subtitle {
-  font-size: 1.764em;
+  font-size: 1.568em;
   font-family: "Droid-sans", "Quattrocentro", sans-serif;
   margin-top: 10px;
   line-height: 3rem; }
 
 .-blurb {
   clear: both;
-  margin-top: 1.2rem;
   font-size: 1.12em;
   font-family: "Droid-sans", "Quattrocentro", sans-serif;
   position: relative;
-  margin: 40px auto 40px auto;
+  margin: 40px auto 20px auto;
   max-width: 60ch; }
 
 .header--social {
@@ -114,23 +134,38 @@ a:active {
     color: #FFFFFF; }
 
 /* NAV */
-nav li,
-nav ul {
-  float: left;
+nav {
+  clear: both;
+  display: block;
+  margin: 0 auto 0 auto;
   position: relative;
   background-color: #00616D;
-  -moz-transition: color .25s ease-in-out;
-  -webkit-transition: color .25s ease-in-out;
-  transition: color .25s ease-in-out;
-  -moz-transition: background-color .25s ease-in-out;
-  -webkit-transition: background-color .25s ease-in-out;
-  transition: background-color .25s ease-in-out; }
+  font-family: "Droid-sans", "Quattrocentro", sans-serif;
+  text-align: center; }
+  nav a, nav a:visited {
+    margin: 0 auto 0 auto;
+    display: inline-block;
+    padding: 1.5ch 1ch 1ch 1ch;
+    text-decoration: none;
+    -moz-transition: color .25s ease-in-out;
+    -webkit-transition: color .25s ease-in-out;
+    transition: color .25s ease-in-out;
+    -moz-transition: background-color .25s ease-in-out;
+    -webkit-transition: background-color .25s ease-in-out;
+    transition: background-color .25s ease-in-out; }
+  nav a:hover {
+    background-color: #00a6b9; }
+  nav a.currentpage {
+    background-color: #00a6b9;
+    color: #FFFFFF; }
+  nav a.blanklink {
+    max-width: 20ch; }
 
 /* CONTENT */
 .alltheposts {
   margin: 0 auto 0 auto;
   position: relative;
-  max-width: 62ch; }
+  max-width: 60ch; }
 
 .contentcontainer {
   display: block;
@@ -138,37 +173,34 @@ nav ul {
   margin: 0 auto 0 auto; }
 
 /* Basic post block in a list */
-.post, .post-fullpage {
+.post {
   display: block;
   max-width: 60ch;
-  margin: 5em auto 0 auto;
-  padding: 0 1em 0 1em;
+  margin: 1em auto 0 auto;
+  padding: 0 2ch 0 2ch;
   position: relative; }
 
 .-one-col {
-  max-width: 60ch; }
+  max-width: 100%; }
 
 .-two-col {
-  max-width: 30ch;
+  max-width: 50%;
   float: left; }
 
 .-three-col {
-  max-width: 20ch;
+  max-width: 33.3%;
   float: left; }
-
-.post-fullpage {
-  max-width: 60ch; }
 
 /* modifiers */
 /* elements */
 .post--categories {
-  font-size: 0.588em; }
+  font-size: 0.84em; }
   .post--categories ul li {
     background-color: #00616D;
     border-radius: 1em;
     padding: 0.2em 2ch 0.2em 2ch;
     margin: 0.1em 0.2em 0.2em 0.1em;
-    max-width: 30ch;
+    max-width: 27ch;
     list-style: none;
     display: block;
     float: left; }
@@ -177,21 +209,19 @@ nav ul {
   border-left: solid 2px #00aabb;
   clear: both; }
   .-post--categories--full-page ul li {
-    max-width: 30ch; }
+    max-width: 27ch; }
 
-.post--title, .-post--title--fullpage {
+.post--title, .post--single-title {
   font-size: 2.3rem;
   line-height: 3.45rem;
   margin: 0.5em auto 0.3em 0;
   clear: both; }
 
-.-post--title--fullpage {
-  clear: both; }
-
-.post--image {
+/* post--image*/
+.post--image, .post--single-image {
   display: block;
   clear: both;
-  min-height: 300px;
+  min-height: 28ch;
   width: 100%;
   margin: 0 0 0.5em 0;
   background-image: url(kitten_1-1.jpg);
@@ -199,19 +229,26 @@ nav ul {
   background-size: cover;
   background-position: center; }
 
-.-post--image--fullpage {
-  clear: both;
-  min-width: 320px;
-  min-height: 320px;
-  width: 90ch;
+.post--single-image {
+  height: 40ch;
+  margin: 0 auto 0 auto;
+  display: block;
+  position: relative; }
+
+.post--single-title {
   position: relative;
-  right: 30ch;
-  margin: auto auto auto 0;
-  background-image: url(kitten_1-1.jpg);
-  background-size: cover;
-  background-position: center; }
+  top: 16ch;
+  max-width: 60ch;
+  padding: 1ch 9ch 1ch 9ch;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  background: rgba(0, 97, 109, 0.6); }
 
 .post--excerpt {
+  margin: 0 auto 0.5em 0;
+  clear: left; }
+
+.post--text {
   margin: 0 auto 0.5em 0;
   clear: left; }
 
@@ -232,5 +269,54 @@ nav ul {
 
 .-duration {
   clear: right; }
+
+footer {
+  clear: both;
+  background-color: #00616D;
+  width: 100%; }
+
+.footer--col-container {
+  margin: 0 auto 0 auto;
+  max-width: 84ch; }
+
+.footer {
+  display: block;
+  position: relative;
+  padding: 1.5ch 3ch 1ch 3ch; }
+
+.-left-top {
+  width: 50%;
+  float: left;
+  border: #FF0000 2px solid; }
+
+.-right-bottom {
+  width: 50%;
+  float: left;
+  border: #FF0000 2px solid; }
+
+.-full-bottom {
+  clear: both;
+  font-size: 0.7em;
+  color: #00a6b9;
+  width: 100%; }
+
+@media all and (max-width: 768px) and (min-width: 300px) {
+  body {
+    font-size: 1em; }
+
+  .post--title, .post--single-title {
+    font-size: 1.3em;
+    line-height: 1.7em; }
+
+  .-left-top {
+    width: 100%;
+    clear: both; }
+
+  .-right-bottom {
+    width: 100%;
+    clear: both; }
+
+  .post--single-title {
+    padding: 1ch 3ch 1ch 3ch; } }
 
 /*# sourceMappingURL=main.css.map */
