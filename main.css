@@ -72,7 +72,7 @@ a:active {
   background-size: cover;
   border-radius: 6em; }
 
-@media screen and (min-width: 320px) and (max-width: 768px) {
+@media screen and (min-width: 300px) and (max-width: 768px) {
   .header--avatar {
     clear: both !important;
     float: none !important;
@@ -80,8 +80,16 @@ a:active {
 
   .header--text {
     clear: both;
-    margin: 10px auto 10px auto;
-    text-align: center; } }
+    margin: 5px auto 5px auto !important;
+    text-align: center; }
+
+  .-blurb {
+    margin-top: 15px !important; }
+
+  .-subtitle {
+    margin-top: 10px;
+    line-height: 2rem !important; } }
+/* media */
 .header--text {
   display: block;
   position: relative;
