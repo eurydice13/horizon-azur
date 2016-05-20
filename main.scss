@@ -289,7 +289,46 @@ nav{
   float: left;
 }
 
-/* modifiers */
+.archive--heading{
+  @extend .post--title;
+  font-size: $POST_TITLE_size;
+  margin: 3ch 0 2ch 1ch !important;
+}
+
+.archive--description{
+  font-size: $BODY_size * 0.8;
+  font-family: $serif-font;
+  margin: 0 1ch 2ch 1ch !important;
+}
+
+.archive--block{
+  margin: 0 1ch 0 1ch !important;
+}
+
+.archive--image{
+  @extend .post--image;
+}
+
+.archive--title{
+  @extend .post--title;
+  font-size: $POST_TITLE_size * 0.6 !important;
+  line-height: $POST_TITLE_size * 0.8 !important;
+}
+
+.archive--metadata{
+  @extend .post--metadata;
+  line-height: 1.2em;
+  clear: both;
+  float: none;
+}
+
+
+.archive--excerpt{
+  @extend .post--excerpt;
+  font-size: $BODY_size * 0.6 !important;
+  line-height: $BODY_size !important;
+}
+
 
 
 /* elements */
