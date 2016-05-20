@@ -38,6 +38,10 @@ $BODY_size: 1.4em;
 $BODY_BKG_color: #00a6b9;
 //$BODY_BKG_color: "-webkit-gradient(linear, left top, left bottom, from(#00a6b9), to(#00616D))";
 $BODY_BKG_DARK_color: #00616D;
+$BODY_BKG_DARK_color_transparent: transparentize($BODY_BKG_DARK_color, 0.4);
+
+/* rgba(0,97,109,0.6); */
+
 $BODY_color: #FFFFFF;
 //$BODY_size: 1.4em;
 
@@ -49,6 +53,10 @@ $HEADER_blurb_size: $BODY_size * 0.8;
 /* Layout parameters */
 $POST_TITLE_size: 2.3rem;
 $POST_width: 60ch;
+
+$IMAGE_height: 28ch;
+$SINGLE_image_height: 40ch;
+
 $SIDEBAR_width: 24ch;
 
 /* Content parameters */
@@ -227,7 +235,7 @@ nav{
   }
 
   & a.blanklink{
-    width:$POST_width / 3;
+    max-width:$POST_width / 3;
   }
 }
 
@@ -238,7 +246,7 @@ nav{
 .alltheposts{
   margin:0 auto 0 auto;
   position: relative;
-  max-width: $POST_width + 2ch;
+  max-width: $POST_width;
 }
 
 .contentcontainer{
@@ -252,29 +260,25 @@ nav{
 .post{
   display: block;
   max-width: $POST_width;
-  margin: 2em auto 0 auto;
-  padding: 0 1em 0 1em;
+  margin: 1em auto 0 auto;
+  padding: 0 2ch 0 2ch;
   position: relative;
 }
 
 .-one-col{
-  max-width: $POST_width;
+  max-width: 100%;
 }
 
 .-two-col{
-  max-width: $POST_width / 2;
+  max-width: 50%;
   float: left;
 }
 
 .-three-col{
-  max-width: $POST_width / 3;
+  max-width: 33.3%;
   float: left;
 }
 
-.post-fullpage{
-  @extend .post;
-  max-width: $POST_width;
-}
 /* modifiers */
 
 
@@ -312,15 +316,12 @@ nav{
   clear: both;
 }
 
-.-post--title--fullpage{
-  @extend .post--title;
-  clear:both;
-}
+/* post--image*/
 
 .post--image{
   display: block;
   clear:both;
-  min-height: 300px;
+  min-height: $IMAGE_height;
   width:100%;
   margin: 0 0 0.5em 0;
 
@@ -330,23 +331,31 @@ nav{
   background-position: center;
 }
 
-.-post--image--fullpage{
-  clear:both;
-  min-width: 320px;
-  min-height: 320px;
-  width:$CATEGORY_width + $POST_width;
+.post--single-image{
+  @extend .post--image;
+  height: $SINGLE_image_height;
+  margin: 0 auto 0 auto;
+  display: block;
+  position: relative;
+}
 
-  position:relative;;
-  right: $CATEGORY_width;
-
-  margin: auto auto auto 0;
-
-  background-image: url(kitten_1-1.jpg);
-  background-size: cover;
-  background-position: center;
+.post--single-title{
+  @extend .post--title;
+  position: relative;
+  top: $SINGLE_image_height /2.5;
+  max-width: $POST_width;
+  padding: 1ch 9ch 1ch 9ch;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  background: $BODY_BKG_DARK_color_transparent;
 }
 
 .post--excerpt{
+  margin: 0 auto 0.5em 0;
+  clear: left;
+}
+
+.post--text{
   margin: 0 auto 0.5em 0;
   clear: left;
 }
@@ -375,11 +384,71 @@ nav{
 
 }
 
+footer{
+  clear: both;
+  background-color: $BODY_BKG_DARK_color;
+  width:100%;
+}
 
-@media all and (max-width: 768px) and (min-width: 320px) {
+.footer--col-container{
+  margin: 0 auto 0 auto;
+  max-width: $POST_width + $SIDEBAR_width;
+}
+
+.footer{
+  display: block;
+  position: relative;
+  padding: 1.5ch 3ch 1ch 3ch;
+}
+
+.-left-top{
+  width: 50%;
+  float: left;
+  @include debug();
+}
+
+.-right-bottom{
+  width: 50%;
+  float: left;
+  @include debug();
+}
+
+.-full-bottom{
+  clear:both;
+  font-size: $BODY_size * 0.5;
+  color: $BODY_BKG_color;
+  width: 100%;
+}
+
+
+
+@media all and (max-width: 768px) and (min-width: 300px) {
    body{
        font-size: 1em;
    }
+   .post--title{
+     font-size: 1.3em;
+     line-height: 1.7em;
+   }
 
-   $BODY_size: 1em;
+   .-left-top{
+     width: 100%;
+     clear: both;
+   }
+
+   .-right-bottom{
+     width: 100%;
+     clear: both;
+   }
+
+   .post--single-title{
+     padding: 1ch 3ch 1ch 3ch;
+   }
+
+
+$BODY_size: 1em !important;
+$POST_width: 95% !important;
+
+$IMAGE_height: 20ch !important;
+
 }

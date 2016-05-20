@@ -20,6 +20,7 @@ Use it as you please, and always tell others where you found it.
 /* GLOBAL VARIABLES */
 /* fonts */
 /* Body parameters */
+/* rgba(0,97,109,0.6); */
 /* Layout parameters */
 /* Content parameters */
 /* basics */
@@ -150,13 +151,13 @@ nav {
     background-color: #00a6b9;
     color: #FFFFFF; }
   nav a.blanklink {
-    width: 20ch; }
+    max-width: 20ch; }
 
 /* CONTENT */
 .alltheposts {
   margin: 0 auto 0 auto;
   position: relative;
-  max-width: 62ch; }
+  max-width: 60ch; }
 
 .contentcontainer {
   display: block;
@@ -164,26 +165,23 @@ nav {
   margin: 0 auto 0 auto; }
 
 /* Basic post block in a list */
-.post, .post-fullpage {
+.post {
   display: block;
   max-width: 60ch;
-  margin: 2em auto 0 auto;
-  padding: 0 1em 0 1em;
+  margin: 1em auto 0 auto;
+  padding: 0 2ch 0 2ch;
   position: relative; }
 
 .-one-col {
-  max-width: 60ch; }
+  max-width: 100%; }
 
 .-two-col {
-  max-width: 30ch;
+  max-width: 50%;
   float: left; }
 
 .-three-col {
-  max-width: 20ch;
+  max-width: 33.3%;
   float: left; }
-
-.post-fullpage {
-  max-width: 60ch; }
 
 /* modifiers */
 /* elements */
@@ -205,19 +203,17 @@ nav {
   .-post--categories--full-page ul li {
     max-width: 27ch; }
 
-.post--title, .-post--title--fullpage {
+.post--title, .post--single-title {
   font-size: 2.3rem;
   line-height: 3.45rem;
   margin: 0.5em auto 0.3em 0;
   clear: both; }
 
-.-post--title--fullpage {
-  clear: both; }
-
-.post--image {
+/* post--image*/
+.post--image, .post--single-image {
   display: block;
   clear: both;
-  min-height: 300px;
+  min-height: 28ch;
   width: 100%;
   margin: 0 0 0.5em 0;
   background-image: url(kitten_1-1.jpg);
@@ -225,19 +221,26 @@ nav {
   background-size: cover;
   background-position: center; }
 
-.-post--image--fullpage {
-  clear: both;
-  min-width: 320px;
-  min-height: 320px;
-  width: 87ch;
+.post--single-image {
+  height: 40ch;
+  margin: 0 auto 0 auto;
+  display: block;
+  position: relative; }
+
+.post--single-title {
   position: relative;
-  right: 27ch;
-  margin: auto auto auto 0;
-  background-image: url(kitten_1-1.jpg);
-  background-size: cover;
-  background-position: center; }
+  top: 16ch;
+  max-width: 60ch;
+  padding: 1ch 9ch 1ch 9ch;
+  margin: 0 auto 0 auto;
+  text-align: center;
+  background: rgba(0, 97, 109, 0.6); }
 
 .post--excerpt {
+  margin: 0 auto 0.5em 0;
+  clear: left; }
+
+.post--text {
   margin: 0 auto 0.5em 0;
   clear: left; }
 
@@ -259,8 +262,53 @@ nav {
 .-duration {
   clear: right; }
 
-@media all and (max-width: 768px) and (min-width: 320px) {
+footer {
+  clear: both;
+  background-color: #00616D;
+  width: 100%; }
+
+.footer--col-container {
+  margin: 0 auto 0 auto;
+  max-width: 84ch; }
+
+.footer {
+  display: block;
+  position: relative;
+  padding: 1.5ch 3ch 1ch 3ch; }
+
+.-left-top {
+  width: 50%;
+  float: left;
+  border: #FF0000 2px solid; }
+
+.-right-bottom {
+  width: 50%;
+  float: left;
+  border: #FF0000 2px solid; }
+
+.-full-bottom {
+  clear: both;
+  font-size: 0.7em;
+  color: #00a6b9;
+  width: 100%; }
+
+@media all and (max-width: 768px) and (min-width: 300px) {
   body {
-    font-size: 1em; } }
+    font-size: 1em; }
+
+  .post--title, .post--single-title {
+    font-size: 1.3em;
+    line-height: 1.7em; }
+
+  .-left-top {
+    width: 100%;
+    clear: both; }
+
+  .-right-bottom {
+    width: 100%;
+    clear: both; }
+
+  .post--single-title {
+    padding: 1ch 3ch 1ch 3ch; } }
 
 /*# sourceMappingURL=main.css.map */
