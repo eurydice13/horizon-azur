@@ -134,6 +134,11 @@ a:active {
     color: #FFFFFF; }
 
 /* NAV */
+/*     ##    #      //\  \        //         */
+/*     # \   #     // \   \      //          */
+/*     #  \  #     =====    \    //           */
+/*     #   \ #    //   \    \  //            */
+/*     #    ##   //     \    \//             */
 nav {
   clear: both;
   display: block;
@@ -196,6 +201,11 @@ nav {
   max-width: 33.3%;
   float: left; }
 
+/*       //\   #####\   //###\   #    #       */
+/*      // \   #    #   #        #    #       */
+/*     =====    #####/   #        ######       */
+/*    //   \   #   \   #        #    #       */
+/*   //     \  #    \  \###/   #    #       */
 .archive--heading {
   font-size: 2.3rem;
   margin: 3ch 0 2ch 1ch !important; }
@@ -221,9 +231,15 @@ nav {
   font-size: 0.84em !important;
   line-height: 1.4em !important; }
 
-/* elements */
+/*   =====      =     =========       */
+/*  |         // \       =           */
+/*  |         =====       =           */
+/*  |        //   \      =           */
+/*   =====  //     \     =           */
 .post--categories {
-  font-size: 0.84em; }
+  font-size: 0.8rem;
+  font-family: "Droid-sans", "Quattrocentro", sans-serif;
+  margin: 0 auto 3.5em auto; }
   .post--categories ul li {
     background-color: #00616D;
     border-radius: 1em;
@@ -240,6 +256,11 @@ nav {
   .-post--categories--full-page ul li {
     max-width: 27ch; }
 
+/*    ####\   #####    /####    #####     */
+/*    #   #   #   #    \         #       */
+/*    #===/   #   #     ===\      #       */
+/*    #       #   #        //     #       */
+/*    #       #####    ####/      #       */
 .post--title, .archive--heading, .archive--title, .post--single-title {
   font-size: 2.3rem;
   line-height: 3.45rem;
@@ -268,7 +289,7 @@ nav {
 
 .post--single-title {
   position: relative;
-  top: 16ch;
+  top: 13.33333ch;
   max-width: 60ch;
   padding: 1ch 9ch 1ch 9ch;
   margin: 0 auto 0 auto;
@@ -280,7 +301,7 @@ nav {
   clear: left; }
 
 .post--text {
-  margin: 0 auto 0.5em 0;
+  margin: 2em auto 0.5em 0;
   clear: left; }
 
 .post--metadata, .archive--metadata {
@@ -301,6 +322,10 @@ nav {
 .-duration {
   clear: right; }
 
+/*    ######   #####   #####    #####     */
+/*    #        #   #   #   #      #       */
+/*    ###      #   #   #   #      #       */
+/*    #        #####   #####      #       */
 footer {
   clear: both;
   background-color: #00616D;

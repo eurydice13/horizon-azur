@@ -30,8 +30,8 @@ Use it as you please, and always tell others where you found it.
 
 /* GLOBAL VARIABLES */
 /* fonts */
-$serif-font: "lemonde-courrier", serif;
-$sans-serif-font: "Droid-sans", "Quattrocentro", sans-serif;
+$FONT_serif: "lemonde-courrier", serif;
+$FONT_sans-serif: "Droid-sans", "Quattrocentro", sans-serif;
 $BODY_size: 1.4em;
 
 /* Body parameters */
@@ -69,7 +69,7 @@ $METADATA_color: $BODY_BKG_DARK_color;
 $METADATA_size: 0.8rem;
 
 $CATEGORY_BKG_color: $BODY_BKG_DARK_color;
-$CATEGORY_size: $BODY_size * 0.6;
+$CATEGORY_size: 0.8rem;
 $CATEGORY_width: 27ch;
 
 
@@ -84,7 +84,7 @@ $CATEGORY_width: 27ch;
 body {
   background-color: $BODY_BKG_color;
   color: $BODY_color;
-  font-family: $serif-font;
+  font-family: $FONT_serif;
   font-size:$BODY_size;
   letter-spacing: 1.3px;
   line-height: 1.05 * $BODY_size;
@@ -97,7 +97,7 @@ h2,
 h3,
 h4,
 h5{
-  font-family: $sans-serif-font;
+  font-family: $FONT_sans-serif;
 }
 
 a,
@@ -164,18 +164,18 @@ a:active {
 
 .-name{
   font-size: $HEADER_name_size;
-  font-family: $serif-font;
+  font-family: $FONT_serif;
   line-height: 3rem;
 }
 
 .-username{
   font-size: $HEADER_username_size;
-  font-family: $sans-serif-font;
+  font-family: $FONT_sans-serif;
 }
 
 .-subtitle{
   font-size: $HEADER_name_size * 0.8;
-  font-family: $sans-serif-font;
+  font-family: $FONT_sans-serif;
   margin-top:10px;
   line-height: 3rem;
 }
@@ -183,7 +183,7 @@ a:active {
 .-blurb{
   clear:both;
   font-size: $HEADER_blurb_size;
-  font-family: $sans-serif-font;
+  font-family: $FONT_sans-serif;
   position:relative;;
   margin: 40px auto 20px auto;
   max-width: $POST_width;
@@ -212,13 +212,21 @@ a:active {
 
 /* NAV */
 
+
+/*     ##    #      //\\  \\        //         */
+/*     # \   #     // \\   \\      //          */
+/*     #  \  #     =====    \\    //           */
+/*     #   \ #    //   \\    \\  //            */
+/*     #    ##   //     \\    \\//             */
+
+
 nav{
   clear: both;
   display: block;
   margin: 0 auto 0 auto;
   position: relative;
   background-color: $BODY_BKG_DARK_color;
-  font-family: $sans-serif-font;
+  font-family: $FONT_sans-serif;
 
   text-align: center;
 
@@ -299,6 +307,13 @@ nav{
   float: left;
 }
 
+/*       //\\   #####\   //###\   #    #       */
+/*      // \\   #    #   #        #    #       */
+/*     =====    #####/   #        ######       */
+/*    //   \\   #   \\   #        #    #       */
+/*   //     \\  #    \\  \\###/   #    #       */
+
+
 .archive--heading{
   @extend .post--title;
   font-size: $POST_TITLE_size;
@@ -307,7 +322,7 @@ nav{
 
 .archive--description{
   font-size: $BODY_size * 0.8;
-  font-family: $serif-font;
+  font-family: $FONT_serif;
   margin: 0 1ch 2ch 1ch !important;
 }
 
@@ -341,10 +356,17 @@ nav{
 
 
 
-/* elements */
+/*   =====      =     =========       */
+/*  |         // \\       =           */
+/*  |         =====       =           */
+/*  |        //   \\      =           */
+/*   =====  //     \\     =           */
+
 
 .post--categories{
   font-size: $CATEGORY_size;
+  font-family: $FONT_sans-serif;
+  margin: 0 auto 3.5em auto;
 
     & ul li{
     background-color: $CATEGORY_BKG_color;
@@ -367,11 +389,17 @@ nav{
     }
   }
 
+/*    ####\   #####    /####    #####     */
+/*    #   #   #   #    \\         #       */
+/*    #===/   #   #     ===\      #       */
+/*    #       #   #        //     #       */
+/*    #       #####    ####/      #       */
+
 
 .post--title{
   font-size: $POST_TITLE_size;
   line-height: 1.5 * $POST_TITLE_size;
-  font-family: $sans-serif-font;
+  font-family: $FONT_sans-serif;
   margin: 0.5em auto 0.3em 0;
   clear: both;
 }
@@ -403,7 +431,7 @@ nav{
 .post--single-title{
   @extend .post--title;
   position: relative;
-  top: $SINGLE_image_height /2.5;
+  top: $SINGLE_image_height /3;
   max-width: $POST_width;
   padding: 1ch 9ch 1ch 9ch;
   margin: 0 auto 0 auto;
@@ -417,7 +445,7 @@ nav{
 }
 
 .post--text{
-  margin: 0 auto 0.5em 0;
+  margin: 2em auto 0.5em 0;
   clear: left;
 }
 
@@ -444,6 +472,13 @@ nav{
 .-post--metadata--fullpage{
 
 }
+
+
+/*    ######   #####   #####    #####     */
+/*    #        #   #   #   #      #       */
+/*    ###      #   #   #   #      #       */
+/*    #        #####   #####      #       */
+
 
 footer{
   clear: both;
