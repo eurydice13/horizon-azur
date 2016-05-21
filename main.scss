@@ -394,9 +394,10 @@ nav{
 .post--single-image{
   @extend .post--image;
   height: $SINGLE_image_height;
-  margin: 0 auto 0 auto;
+  margin: 0 0 0 0;
   display: block;
   position: relative;
+  width: 100%;
 }
 
 .post--single-title{
