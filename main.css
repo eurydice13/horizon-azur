@@ -207,30 +207,22 @@ nav {
 /*    //   \   #   \   #        #    #       */
 /*   //     \  #    \  \###/   #    #       */
 .archive--heading {
-  font-size: 2.3rem;
-  margin: 3ch 0 2ch 1ch !important; }
+  font-size: 3.45rem;
+  line-height: 4.6rem;
+  font-family: "Droid-sans", "Quattrocentro", sans-serif;
+  clear: both;
+  margin: 3ch 0 2ch 1ch; }
 
 .archive--description {
   font-size: 1.12em;
   font-family: "lemonde-courrier", serif;
-  margin: 0 1ch 2ch 1ch !important; }
+  margin: 0 1ch 2ch 1ch; }
 
-.archive--block {
-  margin: 0 1ch 0 1ch !important; }
-
-.archive--title {
-  font-size: 1.38rem !important;
-  line-height: 1.84rem !important; }
-
-.archive--metadata {
-  line-height: 1.2em;
-  clear: both;
-  float: none; }
-
-.archive--excerpt {
-  font-size: 0.84em !important;
-  line-height: 1.4em !important; }
-
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .archive--heading {
+    font-size: 2.53rem;
+    line-height: 2.99rem; } }
+/* media */
 /*   =====      =     =========       */
 /*  |         // \       =           */
 /*  |         =====       =           */
@@ -261,7 +253,7 @@ nav {
 /*    #===/   #   #     ===\      #       */
 /*    #       #   #        //     #       */
 /*    #       #####    ####/      #       */
-.post--title, .archive--heading, .archive--title, .post--single-title {
+.post--title, .post--single-title {
   font-size: 2.3rem;
   line-height: 3.45rem;
   font-family: "Droid-sans", "Quattrocentro", sans-serif;
@@ -269,7 +261,7 @@ nav {
   clear: both; }
 
 /* post--image*/
-.post--image, .archive--image, .post--single-image {
+.post--image, .post--single-image {
   display: block;
   clear: both;
   min-height: 28ch;
@@ -296,7 +288,7 @@ nav {
   text-align: center;
   background: rgba(0, 97, 109, 0.6); }
 
-.post--excerpt, .archive--excerpt {
+.post--excerpt {
   margin: 0 auto 0.5em 0;
   clear: left; }
 
@@ -304,7 +296,7 @@ nav {
   margin: 2em auto 0.5em 0;
   clear: left; }
 
-.post--metadata, .archive--metadata {
+.post--metadata {
   margin: 0em 1em 0.2em 0;
   vertical-align: bottom;
   font-size: 0.8rem;
@@ -360,7 +352,7 @@ footer {
   body {
     font-size: 1em; }
 
-  .post--title, .archive--heading, .archive--title, .post--single-title {
+  .post--title, .post--single-title {
     font-size: 1.3em;
     line-height: 1.7em; }
 

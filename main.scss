@@ -315,45 +315,25 @@ nav{
 
 
 .archive--heading{
-  @extend .post--title;
-  font-size: $POST_TITLE_size;
-  margin: 3ch 0 2ch 1ch !important;
+  font-size: $POST_TITLE_size * 1.5;
+  line-height: $POST_TITLE_size * 2;
+  font-family: $FONT_sans-serif;
+  clear: both;
+  margin: 3ch 0 2ch 1ch;
 }
 
 .archive--description{
   font-size: $BODY_size * 0.8;
   font-family: $FONT_serif;
-  margin: 0 1ch 2ch 1ch !important;
+  margin: 0 1ch 2ch 1ch;
 }
 
-.archive--block{
-  margin: 0 1ch 0 1ch !important;
-}
-
-.archive--image{
-  @extend .post--image;
-}
-
-.archive--title{
-  @extend .post--title;
-  font-size: $POST_TITLE_size * 0.6 !important;
-  line-height: $POST_TITLE_size * 0.8 !important;
-}
-
-.archive--metadata{
-  @extend .post--metadata;
-  line-height: 1.2em;
-  clear: both;
-  float: none;
-}
-
-
-.archive--excerpt{
-  @extend .post--excerpt;
-  font-size: $BODY_size * 0.6 !important;
-  line-height: $BODY_size !important;
-}
-
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .archive--heading{
+    font-size: $POST_TITLE_size * 1.1;
+    line-height: $POST_TITLE_size * 1.3;
+  }
+} /* media */
 
 
 /*   =====      =     =========       */
