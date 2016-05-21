@@ -158,9 +158,14 @@ nav {
   nav a.currentpage {
     background-color: #00a6b9;
     color: #FFFFFF; }
-  nav a.blanklink {
-    max-width: 20ch; }
+  nav a:active {
+    background-color: #ABF358; }
 
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  nav a, nav a:visited {
+    padding: 2ch 1.3ch 1.3ch 1.4ch;
+    font-size: 1.3em; } }
+/* media */
 /* CONTENT */
 .alltheposts {
   margin: 0 auto 0 auto;
@@ -238,6 +243,7 @@ nav {
 .post--title, .archive--heading, .archive--title, .post--single-title {
   font-size: 2.3rem;
   line-height: 3.45rem;
+  font-family: "Droid-sans", "Quattrocentro", sans-serif;
   margin: 0.5em auto 0.3em 0;
   clear: both; }
 

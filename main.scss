@@ -244,12 +244,22 @@ nav{
     color: $BODY_color;
   }
 
-  & a.blanklink{
-    max-width:$POST_width / 3;
+  & a:active{
+    background-color: $LINK_color;
   }
 }
 
+@media screen and (min-width: 300px) and (max-width: 768px) {
 
+  nav{
+
+    & a, a:visited{
+      padding: 2ch 1.3ch 1.3ch 1.4ch;
+      font-size: 1.3em;
+    }
+  }
+
+} /* media */
 
 /* CONTENT */
 
@@ -361,6 +371,7 @@ nav{
 .post--title{
   font-size: $POST_TITLE_size;
   line-height: 1.5 * $POST_TITLE_size;
+  font-family: $sans-serif-font;
   margin: 0.5em auto 0.3em 0;
   clear: both;
 }
